@@ -1,0 +1,139 @@
+body{
+    background-color:rgb(23, 23, 34);
+}
+
+#settings{
+    display:flex;
+    margin-bottom: 20px;
+    align-items:center;
+}
+
+#settings>h3{
+    margin:0px;
+}
+ 
+#settings>input{
+    background-color:#2f2f3f;
+    margin-right: 20px;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    text-align:center;
+    height:30px;
+    border-radius: 3px;
+}
+
+#grid-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#gen_bnt{
+    background-color:#2f2f3f;
+    color: white;
+    padding:10px;
+    border:none;
+}
+
+#gen_bnt:hover{
+    background-color:#3f3f50;
+    color: white;
+    padding:10px;
+}
+
+.grid-row{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.buttons{
+    width: 10%;
+    height: 40px;
+    color: white;
+    background-color:#2b2b3e;
+    border-radius: 4px;
+}
+
+.buttons-parked{
+    width: 10%;
+    height: 40px;
+    color: white;
+    background-color:#78434b;
+    border-radius: 4px;
+}
+
+.buttons-empty{
+    width: 10%;
+    height: 40px;
+    color: white;
+    background-color:#505988;
+    border-radius: 4px;
+}
+
+.buttons:not(.selected):hover{
+    background-color:#3f3f50;
+}
+
+input[type="number"]{
+    width: 5%;
+    
+}
+
+.show-add{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    row-gap: 10px;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    padding:30px;
+    background-color:#393e51e2;
+    border-radius: 15px;
+}
+
+.hide-add{
+    display: none;
+}
+
+.show-edit{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    row-gap: 10px;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    padding:30px;
+    background-color:#393e51e2;
+    border-radius: 15px;
+}
+
+.hide-edit{
+    display: none;
+}
+
+.selected{
+    background-color:rgba(44, 88, 149, 0.675);
+}
+
+.text{
+    color: white;
+}
+
+.popup-inps{
+    outline:none;
+    background-color:#2f2f3f;
+    color:white;
+    border:none;
+    padding:5px;
+    border-radius: 3px;
+}
+
+.popup-btns{
+    outline:none;
+    background-color:#2f2f3f;
+    color:white;
+    border:none;
+    padding:5px;
+    border-radius: 3px;
+}

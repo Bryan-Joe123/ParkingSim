@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSim</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/vehicle.js"></script>
+    <script src="JavaScript/parking.js"></script>
+    <script src="JavaScript/script.js"></script>
+</head>
+<body>
+    <div id="settings">
+        <h3 class="text">Dencity: </h3>
+        <input type="number" name="density" id="density" placeholder="Density" value="2" class="text">
+        <h3 class="text">Height: </h3>
+        <input type="number" name="height" id="height" placeholder="Height" value="10" class="text">
+        <h3 class="text">Width: </h3>
+        <input type="number" name="width" id="width" placeholder="Width" value="10" class="text">
+        <button id="gen_bnt" onclick="generate_grid()">Generate</button>
+    </div>
+    <div id="grid-container"></div>
+    <div id="add" class="hide-add">
+        <select class="popup-inps" id="add-type">
+            <option value="volvo">Car</option>
+            <option value="saab">MotorBike</option>
+            <option value="mercedes">Truck</option>
+        </select>
+        <input class="popup-inps" type="text" id="add-color" placeholder="Color">
+        <input class="popup-inps" type="text" id="add-company" placeholder="Company">
+        <input class="popup-inps" type="text" id="add-plate" placeholder="Number Plate">
+        <div class="bnt-container" style="display:flex; justify-content: center; gap: 40px;">
+            <button class="popup-btns" onclick="cancel()">Cancel</button>
+            <button class="popup-btns" onclick="add()">Add</button>
+        </div>
+    </div>
+
+    <div id="edit" class="hide-edit">
+        <select class="popup-inps" id="edit-type">
+            <option value="Car">Car</option>
+            <option value="Motorcycle">Motorcycle</option>
+            <option value="Truck">Truck</option>
+        </select>
+        <input class="popup-inps" type="text" id="edit-color" placeholder="Color">
+        <input class="popup-inps" type="text" id="edit-company" placeholder="Company">
+        <input class="popup-inps" type="text" id="edit-plate" placeholder="Number Plate">
+        <div class="bnt-container" style="display:flex; justify-content: center; gap: 40px;">
+            <button class="popup-btns" onclick="cancel()">Cancel</button>
+            <button class="popup-btns" onclick="add()">Edit</button>
+            <button class="popup-btns" onclick="remove()">Exit</button>
+        </div>
+    </div>
+</body>
+</html>
