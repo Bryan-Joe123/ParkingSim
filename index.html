@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkSim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="JavaScript/data.js"></script>
     <script src="JavaScript/vehicle.js"></script>
@@ -12,22 +13,26 @@
     <script src="JavaScript/script.js"></script>
 </head>
 <body>
-    <div id="settings">
-        <h3 class="text">Dencity: </h3>
-        <input type="number" name="density" id="density" placeholder="Density" value="2" class="text">
-        <h3 class="text">Height: </h3>
-        <input type="number" name="height" id="height" placeholder="Height" value="10" class="text">
-        <h3 class="text">Width: </h3>
-        <input type="number" name="width" id="width" placeholder="Width" value="10" class="text">
-        <button id="gen_bnt" onclick="generate_grid()">Generate</button>
+    <div id="header" style="display:flex; justify-content:space-between">
+        <div id="settings">
+            <h3 class="text">Density: </h3>
+            <input type="number" name="density" id="density" placeholder="Density" value="2" class="text">
+            <h3 class="text">Height: </h3>
+            <input type="number" name="height" id="height" placeholder="Height" value="10" class="text">
+            <h3 class="text">Width: </h3>
+            <input type="number" name="width" id="width" placeholder="Width" value="10" class="text">
+            <button id="gen_bnt" onclick="generate_grid()">Generate</button>
+        </div>
+        <div style="display:flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+            <h3 id="no_parked" class="text"></h3>
+            <h3 id="no_empty" class="text"></h3>
+        </div>
     </div>
+        
     <div id="grid-container"></div>
-    <div id="add" class="hide-add">
-        <select class="popup-inps" id="add-type">
-            <option value="volvo">Car</option>
-            <option value="saab">MotorBike</option>
-            <option value="mercedes">Truck</option>
-        </select>
+
+    <div id="add" class="hide-popup popup">
+        <input class="popup-inps" type="text" id="add-type" placeholder="Type">
         <input class="popup-inps" type="text" id="add-color" placeholder="Color">
         <input class="popup-inps" type="text" id="add-company" placeholder="Company">
         <input class="popup-inps" type="text" id="add-plate" placeholder="Number Plate">
@@ -37,19 +42,64 @@
         </div>
     </div>
 
-    <div id="edit" class="hide-edit">
-        <select class="popup-inps" id="edit-type">
-            <option value="Car">Car</option>
-            <option value="Motorcycle">Motorcycle</option>
-            <option value="Truck">Truck</option>
-        </select>
-        <input class="popup-inps" type="text" id="edit-color" placeholder="Color">
-        <input class="popup-inps" type="text" id="edit-company" placeholder="Company">
-        <input class="popup-inps" type="text" id="edit-plate" placeholder="Number Plate">
+    <div id="edit" class="hide-popup popup">
+        <div class="inps-text-align">
+            <h3 class="text">Type: </h3>
+            <select class="popup-inps" id="edit-type">
+                <option value="Car">Car</option>
+                <option value="Motorcycle">Motorcycle</option>
+                <option value="Truck">Truck</option>
+            </select>
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Color: </h3>
+            <input class="popup-inps" type="text" id="edit-color" placeholder="Color">
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Company: </h3>
+            <input class="popup-inps" type="text" id="edit-company" placeholder="Company">
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Number Plate: </h3>
+            <input class="popup-inps" type="text" id="edit-plate" placeholder="Number Plate">
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Entry Time: </h3>
+            <input class="popup-inps" type="text" id="edit-time">
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Duration: </h3>
+            <input class="popup-inps" type="text" id="edit-duration">
+        </div>
         <div class="bnt-container" style="display:flex; justify-content: center; gap: 40px;">
+            
             <button class="popup-btns" onclick="cancel()">Cancel</button>
             <button class="popup-btns" onclick="add()">Edit</button>
-            <button class="popup-btns" onclick="remove()">Exit</button>
+            <button class="popup-btns" onclick="exit()">Exit</button>
+        </div>
+    </div>
+
+    <div id="fee" class="hide-popup popup">
+        <div class="inps-text-align">
+            <h3 class="text">Fee: </h3>
+            <input class="popup-inps" type="text" id="fee-fee" placeholder="Fee">
+        </div>
+        <div class="bnt-container" style="display:flex; justify-content: center; gap: 40px; margin-top: 20px;">
+            <button class="popup-btns" onclick="cancel()">Done</button>
+        </div>
+    </div>
+
+    <div id="stat" class="hide-popup popup">
+        <div class="inps-text-align">
+            <h3 class="text">Parked: </h3>
+            <input class="popup-inps" type="text" id="stat-parked" placeholder="Parked">
+        </div>
+        <div class="inps-text-align">
+            <h3 class="text">Empty: </h3>
+            <input class="popup-inps" type="text" id="stat-empty" placeholder="Parked">
+        </div>
+        <div class="bnt-container" style="display:flex; justify-content: center; gap: 40px; margin-top: 20px;">
+            <button class="popup-btns" onclick="cancel()">Close</button>
         </div>
     </div>
 </body>
